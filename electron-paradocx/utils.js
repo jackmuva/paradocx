@@ -26,7 +26,23 @@ async function handleSearch() {
 	try {
 		resultsContainer.textContent = 'Searching...';
 		const result = await chat(searchInput.value);
-		resultsContainer.textContent = result.response.content;
+		
+		// Get unique URLs from the context array
+		const uniqueUrls = [...new Set(result.context.map(item => item.url))];
+		
+		// Create the HTML with both response content and URLs
+		resultsContainer.innerHTML = `
+			<div class="response-content">
+				<h3>Response:</h3>
+				<div>${result.response.content}</div>
+			</div>
+			<div class="source-urls">
+				<h3>Sources (${uniqueUrls.length}):</h3>
+					${uniqueUrls.map(url => `
+						<a href="${url}" target="_blank">${url}</a>>
+					`).join('')}
+			</div>
+		`;
 	} catch (error) {
 		resultsContainer.textContent = `Error: ${error.message}`;
 	}
