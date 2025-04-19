@@ -1,0 +1,17 @@
+body {
+  background-color: #EDEADE;
+}
+
+textarea{
+	background-color:#F0EAD6;
+	padding: 5px;
+}
+
+#search-container{
+	display: flex;
+  	flex-direction: row;
+}
+
+#results-container{
+  white-space: pre-line;
+}

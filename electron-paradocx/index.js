@@ -2,8 +2,11 @@ const { app, BrowserWindow } = require('electron/main')
 
 const createWindow = () => {
 	const win = new BrowserWindow({
-		width: 800,
-		height: 600
+		width: 500,
+		height: 300,
+		resizable: true,
+		//frame: false,
+		//transparent: true
 	})
 
 	win.loadFile('index.html')

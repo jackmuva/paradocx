@@ -85,7 +85,8 @@ def run_rag(prompt: str, search_method:str="dense", top_k:int=5, rerank:bool=Fal
         (
             "system",
             '''You are a helpful assistant that helps people search the useparagon (Paragon) docs. 
-                Only use provided information retrieved as context. Do not hallucinate.''',
+                Only use provided information retrieved as context. If context is irrelevant to the 
+                prompt, do not use it. Do not hallucinate.''',
         ),
     ]
     
