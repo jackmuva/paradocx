@@ -99,10 +99,11 @@ def run_rag(prompt: str, search_method:str="dense", top_k:int=5, rerank:bool=Fal
         context_text=[doc['fields']['text'] for doc in response.result['hits']]
         text_answer = " ".join(context_text)
     else:
-        query_response = vector_search(dense_index, prompt, top_k, rerank)
+        response = vector_search(dense_index, prompt, top_k, rerank)
         sparse_response = vector_search(sparse_index, prompt, top_k, rerank)
-        response = {"result": {"hits": merge_chunks(query_response, sparse_response)}}
-        context_text=[doc['fields']['text'] for doc in response['result']['hits']]
+        print(response)
+        hybrid_response = {"result": {"hits": merge_chunks(response, sparse_response)}}
+        context_text=[doc['fields']['text'] for doc in hybrid_response['result']['hits']]
         text_answer = " ".join(context_text)
 
     if summarization:

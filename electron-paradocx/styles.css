@@ -3,17 +3,22 @@ body {
 }
 
 textarea{
+    border-radius: 5px;
 	background-color:#F0EAD6;
 	padding: 5px;
 }
+button{
+    border-radius:5px;
+}
+
 
 h3{
 	margin: 0;
 }
 
 #search-container{
-	display: flex;
-  	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 #results-container{
