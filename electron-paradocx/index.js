@@ -12,6 +12,10 @@ const createWindow = () => {
 	win.loadFile('index.html')
 }
 
+const nativeImage = require('electron').nativeImage;
+const image = nativeImage.createFromPath('./paradocx-icon.png')
+app.dock.setIcon(image);
+
 app.whenReady().then(() => {
 	createWindow()
 

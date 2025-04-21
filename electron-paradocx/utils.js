@@ -1,7 +1,9 @@
 async function chat(query) {
 	console.log('Starting chat function with query:', query);
+	//const url = "http://localhost:8000";
+	const url = "https://api.para-docx.com";
 	try {
-		const response = await fetch(`http://localhost:8000/chat?q=${encodeURIComponent(query)}`, {
+		const response = await fetch(url + `/chat?q=${encodeURIComponent(query)}`, {
 			method: "GET"
 		});
 		const data = await response.json();
