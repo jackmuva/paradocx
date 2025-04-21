@@ -148,14 +148,14 @@ def index_pinecone(chunk_size=512, chunk_overlap=20):
             if os.path.exists('./cache/index-cache.json'):
                 with open('./cache/index-cache.json', 'r') as file:
                     index_cache = json.load(file)
-            if md.split('/')[-1] in index_cache:
-                print(md.split('/')[-1] + " result cached; skipping")
+            if md in index_cache:
+                print(md + " result cached; skipping")
                 continue
             else:
-                print(md.split('/')[-1] + " upserting")
+                print(md + " upserting")
                 upsert_chunk(md, chunks, pc, dense_index, "dense")
                 upsert_chunk(md, chunks, pc, sparse_index, "sparse")
-                index_cache[md.split('/')[-1]] = True
+                index_cache[md] = True
                 with open('./cache/index-cache.json', 'w') as file:
                     json.dump(index_cache, file)
         except Exception as error:

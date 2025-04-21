@@ -24,3 +24,7 @@ ABSOLUTE_PATH_TO_DOCS="/Users/PATH_TO_MINTLIFY_DOCS"
 ## Docker for Fastapi
 1) Run `docker build -t fastapi-paradocx .`
 2) Run `docker run -d --name fastapi-paradocx -p 80:80 --env-file .env fastapi-paradocx`
+
+## Re-indexing the Pinecone Vector Database
+* Run `python fastapi-paradocx/app/load_pinecone/setup_db.py`
+    * Make sure the `ABSOLUTE_PATH_TO_DOCS` is set correctly
