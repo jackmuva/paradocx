@@ -1,4 +1,4 @@
-from retrieve.retrieval import run_rag
+from app.retrieve.retrieval import run_rag
 from fastapi import FastAPI
 
 app = FastAPI()
